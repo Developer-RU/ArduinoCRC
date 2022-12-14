@@ -1,2 +1,0 @@
-# ArduinoCRC
-Arduino crc library
