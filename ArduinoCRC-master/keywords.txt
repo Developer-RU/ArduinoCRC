@@ -1,5 +1,3 @@
-# комментарий
-
 ArduinoCRC  KEYWORD1
 Color  KEYWORD1
 setColor  KEYWORD2
