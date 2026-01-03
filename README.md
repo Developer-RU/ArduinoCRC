@@ -148,7 +148,7 @@ Report issues at: https://github.com/Developer-RU/ArduinoCRC/issues
 
 ## Changelog ==
 
-### v1.0.0 (2026-01-03)
+### v2.0.0 (2026-01-03)
 
 Initial release
 
