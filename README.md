@@ -1,9 +1,9 @@
-= Checksum Library for Arduino =
+# Checksum Library for Arduino
 
 A lightweight 8-bit checksum library for Arduino, ESP8266, ESP32 and other AVR/ARM platforms.
 Provides efficient data integrity verification through simple byte summation.
 
-== Features ==
+## Features
 
 * 8-bit checksum calculation with overflow
 * Incremental calculation mode
@@ -14,15 +14,15 @@ Provides efficient data integrity verification through simple byte summation.
 * Memory efficient (minimal footprint)
 * No external dependencies
 
-== Installation ==
+## Installation
 
-=== Using Arduino IDE ===
+### Using Arduino IDE
 
 1. Download the library as ZIP
 2. In Arduino IDE: Sketch → Include Library → Add .ZIP Library...
 3. Select the downloaded ZIP file
 
-=== Using PlatformIO ===
+### Using PlatformIO
 
 Add to your `platformio.ini`:
 
@@ -32,7 +32,7 @@ framework = arduino
 lib_deps = 
     https://github.com/Developer-RU/ArduinoCRC.git
 
-== Usage ==
+## Usage
 
 ```cpp
 #include <Checksum.h>
@@ -70,9 +70,9 @@ void loop() {
     // Empty
 }
 
-== API Reference ==
+## API Reference 
 
-=== Class: utils::Checksum ===
+### Class: utils::Checksum 
 
 void start() - Reset checksum to initial value (0xFF)
 
@@ -82,13 +82,13 @@ void add(const uint8_t* data, uint16_t dataLen) - Add byte array to checksum
 
 uint8_t get() const - Get current checksum value
 
-=== Static Methods ===
+### Static Methods
 
 static uint8_t calculate(const uint8_t* data, uint16_t dataLen) - Calculate checksum for byte array
 
 static bool verify(const uint8_t* data, uint16_t dataLen, uint8_t expected) - Verify checksum
 
-== Limitations ==
+## Limitations
 
 8-bit checksum provides basic error detection only
 
@@ -98,7 +98,7 @@ Susceptible to certain error patterns
 
 Maximum overflow: 255 bytes without loss of precision
 
-== Examples ==
+## Examples
 
 The library includes the following examples (File → Examples → ArduinoCRC):
 
@@ -110,7 +110,7 @@ DataVerification - Complete data integrity check example
 
 SerialMonitor - Interactive checksum calculator via Serial
 
-== Platform Compatibility ==
+## Platform Compatibility
 
 ✅ Arduino Uno/Nano/Mega (AVR)
 ✅ ESP8266
@@ -119,7 +119,7 @@ SerialMonitor - Interactive checksum calculator via Serial
 ✅ Teensy 3.x/4.x
 ✅ Raspberry Pi Pico (RP2040)
 
-== Library Structure ==
+## Library Structure
 
 ArduinoCRC/
 ├── examples/           # Example sketches
@@ -131,7 +131,7 @@ ArduinoCRC/
 ├── LICENSE           # MIT License
 └── README.adoc       # This file
 
-== Contributing ==
+## Contributing
 
 Contributions are welcome! Please:
 
@@ -145,9 +145,9 @@ Submit a pull request
 
 Report issues at: https://github.com/Developer-RU/ArduinoCRC/issues
 
-== Changelog ==
+## Changelog ==
 
-=== v1.0.0 (2026-01-03) ===
+### v1.0.0 (2026-01-03)
 
 Initial release
 
@@ -157,7 +157,7 @@ Incremental and batch modes
 
 MIT license
 
-== License ==
+## License
 
 MIT License
 
@@ -181,7 +181,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-== Links ==
+## Links
 
 Repository: https://github.com/Developer-RU/ArduinoCRC
 
