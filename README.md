@@ -1,5 +1,10 @@
 # Checksum Library for Arduino
 
+<p>
+  <img src="/images/version.svg" alt="Version 1.0.0">
+  <img src="/images/license.svg" alt="License MIT">
+</p>
+
 A lightweight 8-bit checksum library for Arduino, ESP8266, ESP32 and other AVR/ARM platforms.
 Provides efficient data integrity verification through simple byte summation.
 
