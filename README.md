@@ -1,9 +1,8 @@
 # Checksum Library for Arduino
 
-<p>
-  <img src="/images/version.svg" alt="Version 1.0.0">
-  <img src="/images/license.svg" alt="License MIT">
-</p>
+[![Version: 1.0.0](images/version.svg)](https://github.com/Developer-RU/ArduinoCRC/releases)
+[![License: MIT](images/license-mit.svg)](LICENSE.md)
+
 
 A lightweight 8-bit checksum library for Arduino, ESP8266, ESP32 and other AVR/ARM platforms.
 Provides efficient data integrity verification through simple byte summation.
@@ -134,7 +133,7 @@ ArduinoCRC/
 │   └── Checksum.h     # Header file
 ├── library.properties # Library metadata
 ├── keywords.txt       # Arduino IDE syntax highlighting 
-├── LICENSE           # MIT License
+├── LICENSE.md         # MIT License
 └── README.md          # This file
 
 ## Contributing
