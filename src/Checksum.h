@@ -1,16 +1,17 @@
 /**
  * @file Checksum.h
- * @brief Заголовочный файл класса для вычисления 8-битной контрольной суммы
- * @author WASH-PRO
- * @email p.masyukov@gmail.com
+ * @author Masyukov Pavel
+ * @brief Header file for the Checksum class for 8-bit checksum calculation.
+ * @version 1.0.0
+ * @see https://github.com/Developer-RU/ArduinoCRC
  * 
- * Класс предоставляет функционал для инкрементального вычисления 
- * контрольной суммы как простой суммы байтов (с накоплением в uint8_t).
+ * The class provides functionality for incremental calculation of a checksum
+ * as a simple sum of bytes (accumulated in a uint8_t).
  * 
- * @note Использует начальное значение 0xFF для контрольной суммы
- * @warning Из-за использования 8-битного переполнения контрольная сумма 
- *          не является криптографически стойкой и предназначена только 
- *          для проверки целостности данных
+ * @note Uses an initial value of 0xFF for the checksum.
+ * @warning Due to the use of 8-bit overflow, the checksum is not
+ *          cryptographically secure and is intended only for data
+ *          integrity checks.
  */
 
 #pragma once
@@ -22,65 +23,65 @@ namespace utils {
 
 /**
  * @class Checksum
- * @brief Класс для вычисления и проверки 8-битной контрольной суммы
+ * @brief Class for calculating and verifying an 8-bit checksum.
  * 
- * Поддерживает два режима работы:
- * 1. Инкрементальный - последовательное добавление данных
- * 2. Пакетный - вычисление за один вызов
+ * Supports two modes of operation:
+ * 1. Incremental - sequential addition of data.
+ * 2. Batch - calculation in a single call.
  */
 class Checksum {
 public:
-    // ==================== Методы инкрементального вычисления ====================
+    // ==================== Incremental Calculation Methods ====================
     
     /**
-     * @brief Сбрасывает контрольную сумму до начального значения
-     * @note Метод start() используется вместо reset() для совместимости со старым кодом
+     * @brief Resets the checksum to its initial value.
+     * @note The start() method is used instead of reset() for compatibility with older code.
      */
     void start();
     
     /**
-     * @brief Добавляет один байт к текущей контрольной сумме
-     * @param byte Байт данных для добавления
+     * @brief Adds a single byte to the current checksum.
+     * @param byte The data byte to add.
      */
     void add(uint8_t byte);
     
     /**
-     * @brief Добавляет массив байтов к текущей контрольной сумме
-     * @param data Указатель на массив данных
-     * @param dataLen Количество байтов для добавления
+     * @brief Adds a byte array to the current checksum.
+     * @param data Pointer to the data array.
+     * @param dataLen The number of bytes to add.
      */
     void add(const uint8_t* data, uint16_t dataLen);
     
     /**
-     * @brief Возвращает текущее значение контрольной суммы
-     * @return Вычисленная контрольная сумма (0-255)
+     * @brief Returns the current value of the checksum.
+     * @return The calculated checksum (0-255).
      */
     uint8_t get() const;
     
-    // ==================== Статические методы пакетного вычисления ====================
+    // ==================== Static Batch Calculation Methods ====================
     
     /**
-     * @brief Вычисляет контрольную сумму для заданного массива данных
-     * @param data Указатель на массив данных
-     * @param dataLen Количество байтов для обработки
-     * @return Контрольная сумма для переданных данных
+     * @brief Calculates the checksum for a given data array.
+     * @param data Pointer to the data array.
+     * @param dataLen The number of bytes to process.
+     * @return The checksum for the provided data.
      * 
-     * @note Удобный метод для разового вычисления без создания объекта
+     * @note A convenient method for a one-time calculation without creating an object.
      */
     static uint8_t calculate(const uint8_t* data, uint16_t dataLen);
     
     /**
-     * @brief Проверяет корректность контрольной суммы для данных
-     * @param data Указатель на массив данных
-     * @param dataLen Количество байтов для обработки
-     * @param expected Ожидаемое значение контрольной суммы
-     * @return true если вычисленная контрольная сумма совпадает с ожидаемой
+     * @brief Verifies the checksum for the given data.
+     * @param data Pointer to the data array.
+     * @param dataLen The number of bytes to process.
+     * @param expected The expected checksum value.
+     * @return true if the calculated checksum matches the expected value, false otherwise.
      */
     static bool verify(const uint8_t* data, uint16_t dataLen, uint8_t expected);
 
 private:
-    static const uint8_t INITIAL_VALUE = 0xFF;  ///< Начальное значение контрольной суммы
-    uint8_t m_checksum;                         ///< Текущее значение контрольной суммы
+    static const uint8_t INITIAL_VALUE = 0xFF;  ///< Initial value of the checksum.
+    uint8_t m_checksum;                         ///< Current value of the checksum.
 };
 
 } // namespace utils

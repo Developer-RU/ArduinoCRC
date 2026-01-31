@@ -1,14 +1,13 @@
 # ================================================
-# Файл подсветки синтаксиса для библиотеки Checksum
-# Автор: WASH-PRO
-# Email: p.masyukov@gmail.com
-# Библиотека для вычисления 8-битной контрольной суммы
+# Syntax highlighting file for the Checksum library.
+# Author: Masyukov Pavel
+# A library for calculating an 8-bit checksum.
 # ================================================
 
-# Классы (подсвечиваются оранжевым/синим в Arduino IDE)
+# Classes (highlighted orange/blue in Arduino IDE)
 Checksum	KEYWORD1
 
-# Публичные методы (подсвечиваются коричневым)
+# Public methods (highlighted brown)
 start		KEYWORD2
 add			KEYWORD2
 get			KEYWORD2
@@ -16,22 +15,22 @@ calculate	KEYWORD2
 verify		KEYWORD2
 
 # ================================================
-# КОММЕНТАРИИ ПО ИСПОЛЬЗОВАНИЮ:
+# USAGE NOTES:
 # 
-# 1. KEYWORD1 - для имен классов (оранжевый/синий цвет)
-# 2. KEYWORD2 - для публичных методов (коричневый цвет)
+# 1. KEYWORD1 - for class names (orange/blue color).
+# 2. KEYWORD2 - for public methods (brown color).
 # 
 # ФОРМАТ:
-# <имя_ключа> <TAB> <тип_ключа>
+# <keyword_name> <TAB> <keyword_type>
 # 
-# Пример использования:
+# Example usage:
 # 
 # utils::Checksum checksum;     // KEYWORD1
 # checksum.start();             // KEYWORD2
 # checksum.add(data, len);      // KEYWORD2
 # uint8_t sum = checksum.get(); // KEYWORD2
 # 
-# // Статические методы:
+# // Static methods:
 # uint8_t sum = Checksum::calculate(data, len); // KEYWORD1, KEYWORD2
 # bool ok = Checksum::verify(data, len, expected); // KEYWORD1, KEYWORD2
 # ================================================

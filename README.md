@@ -73,21 +73,21 @@ void loop() {
 
 ## API Reference 
 
-### Class: utils::Checksum 
+### Class: `utils::Checksum`
 
-void start() - Reset checksum to initial value (0xFF)
-
-void add(uint8_t byte) - Add single byte to checksum
-
-void add(const uint8_t* data, uint16_t dataLen) - Add byte array to checksum
-
-uint8_t get() const - Get current checksum value
+| Method | Description |
+|---|---|
+| `void start()` | Resets the checksum to its initial value (0xFF). |
+| `void add(uint8_t byte)` | Adds a single byte to the checksum. |
+| `void add(const uint8_t* data, uint16_t dataLen)` | Adds a byte array to the checksum. |
+| `uint8_t get() const` | Returns the current checksum value. |
 
 ### Static Methods
 
-static uint8_t calculate(const uint8_t* data, uint16_t dataLen) - Calculate checksum for byte array
-
-static bool verify(const uint8_t* data, uint16_t dataLen, uint8_t expected) - Verify checksum
+| Method | Description |
+|---|---|
+| `static uint8_t calculate(const uint8_t* data, uint16_t dataLen)` | Calculates the checksum for a byte array in one call. |
+| `static bool verify(const uint8_t* data, uint16_t dataLen, uint8_t expected)` | Verifies if the calculated checksum for a byte array matches an expected value. |
 
 ## Limitations
 
@@ -128,13 +128,13 @@ ArduinoCRC/
 │   ├── Checksum.cpp   # Implementation
 │   └── Checksum.h     # Header file
 ├── library.properties # Library metadata
-├── keywords.txt       # Arduino IDE syntax highlighting
+├── keywords.txt       # Arduino IDE syntax highlighting 
 ├── LICENSE           # MIT License
-└── README.adoc       # This file
+└── README.md          # This file
 
 ## Contributing
 
-Contributions are welcome! Please:
+Contributions are welcome! Please: 
 
 Fork the repository
 
@@ -146,41 +146,11 @@ Submit a pull request
 
 Report issues at: https://github.com/Developer-RU/ArduinoCRC/issues
 
-## Changelog ==
+## Changelog
 
-### v2.0.0 (2026-01-03)
+### v1.0.0
 
 Initial release
-
-8-bit checksum implementation
-
-Incremental and batch modes
-
-MIT license
-
-## License
-
-MIT License
-
-Copyright (c) 2022-2026 WASH-PRO p.masyukov@gmail.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 
 ## Links
 
