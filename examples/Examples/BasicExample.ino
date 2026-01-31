@@ -1,13 +1,13 @@
 /**
  * @file BasicExample.ino
- * @brief Пример использования библиотеки Checksum для Arduino
- * @author WASH-PRO
- * @email p.masyukov@gmail.com
+ * @brief Basic usage example for the Checksum library.
+ * @author Masyukov Pavel
+ * @see https://github.com/Developer-RU/ArduinoCRC
  * 
- * Демонстрирует три способа работы с контрольной суммой:
- * 1. Инкрементальное вычисление (по одному байту)
- * 2. Пакетное вычисление (массив данных)
- * 3. Верификация данных
+ * Demonstrates three ways to work with the checksum:
+ * 1. Incremental calculation (byte by byte)
+ * 2. Batch calculation (for a data array)
+ * 3. Data verification
  */
 
 #include <Checksum.h>
@@ -15,7 +15,7 @@
 void setup()
 {
     // Инициализация последовательного порта для вывода результатов
-    Serial.begin(115200);
+    Serial.begin(115200); // Initialize serial port for output
     delay(1000);
     
     Serial.println("=======================================");
@@ -26,15 +26,15 @@ void setup()
     Serial.println("Example 1: Incremental Calculation");
     Serial.println("-----------------------------------");
     
-    utils::Checksum checksum;
-    checksum.start(); // Сброс к начальному значению 0xFF
+    utils::Checksum checksum; // Create a Checksum object
+    checksum.start(); // Reset to the initial value 0xFF
     
-    // Последовательно добавляем байты
+    // Add bytes sequentially
     checksum.add(0x01);
     checksum.add(0x02);
     checksum.add(0x03);
     
-    // Получаем результат: 0xFF + 0x01 + 0x02 + 0x03 = 0x05
+    // Get the result: 0xFF + 0x01 + 0x02 + 0x03 = 0x05
     uint8_t incrementalResult = checksum.get();
     
     Serial.print("Bytes: 0x01, 0x02, 0x03\n");
@@ -42,12 +42,12 @@ void setup()
     Serial.print("Incremental checksum: 0x");
     Serial.println(incrementalResult, HEX);
     
-    // Демонстрация математики для ясности
+    // Show the math for clarity
     Serial.print("Calculation: 0xFF + 0x01 + 0x02 + 0x03 = 0x");
     Serial.println(incrementalResult, HEX);
     Serial.println();
 
-    // Пример 2: Пакетное вычисление (статический метод)
+    // Example 2: Batch calculation (using a static method)
     Serial.println("Example 2: Batch Calculation");
     Serial.println("----------------------------");
     
@@ -71,23 +71,23 @@ void setup()
     Serial.print("Batch checksum: 0x");
     Serial.println(batchResult, HEX);
     
-    // Проверяем вычисление вручную
+    // Manual check of the calculation
     Serial.print("Manual check: 0xFF + 0x01 + 0x02 + 0x03 + 0x04 + 0x05 = 0x");
     Serial.println(batchResult, HEX);
     Serial.println();
 
-    // Пример 3: Верификация данных
+    // Example 3: Data verification
     Serial.println("Example 3: Data Verification");
     Serial.println("----------------------------");
     
-    // Правильная ожидаемая сумма для массива data
+    // The correct expected checksum for the `data` array
     // 0xFF + 0x01 + 0x02 + 0x03 + 0x04 + 0x05 = 0x0E
     uint8_t expectedChecksum = 0x0E;
     
     Serial.print("Expected checksum: 0x");
     Serial.println(expectedChecksum, HEX);
     
-    // Проверяем правильность контрольной суммы
+    // Verify the checksum
     bool isValid = utils::Checksum::verify(data, dataLength, expectedChecksum);
     
     if (isValid) {
@@ -96,10 +96,10 @@ void setup()
         Serial.println("✗ Verification: FAIL - Data corruption detected");
     }
     
-    // Демонстрация обнаружения ошибки
+    // Demonstrate error detection
     Serial.println("\nDemonstrating error detection:");
     
-    // Имитируем повреждение данных (изменяем один байт)
+    // Simulate data corruption by changing one byte
     uint8_t corruptedData[] = {0x01, 0x02, 0x03, 0x44, 0x05}; // 0x04 изменен на 0x44
     
     Serial.print("Corrupted data: ");
@@ -125,7 +125,7 @@ void setup()
 
 void loop()
 {
-    // Этот пример выполняется один раз в setup()
-    // Для интерактивных примеров можно добавить код в loop()
+    // This example runs once in setup()
+    // For interactive examples, you could add code to the loop()
     delay(1000);
 }
