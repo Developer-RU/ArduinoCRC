@@ -20,7 +20,7 @@ verify		KEYWORD2
 # 1. KEYWORD1 - for class names (orange/blue color).
 # 2. KEYWORD2 - for public methods (brown color).
 # 
-# ФОРМАТ:
+# FORMAT:
 # <keyword_name> <TAB> <keyword_type>
 # 
 # Example usage:

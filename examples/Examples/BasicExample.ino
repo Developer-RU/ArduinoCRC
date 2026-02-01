@@ -14,15 +14,12 @@
 
 void setup()
 {
-    // Инициализация последовательного порта для вывода результатов
     Serial.begin(115200); // Initialize serial port for output
     delay(1000);
     
     Serial.println("=======================================");
     Serial.println("Checksum Library Basic Example");
     Serial.println("=======================================\n");
-
-    // Пример 1: Инкрементальное вычисление
     Serial.println("Example 1: Incremental Calculation");
     Serial.println("-----------------------------------");
     
@@ -46,8 +43,6 @@ void setup()
     Serial.print("Calculation: 0xFF + 0x01 + 0x02 + 0x03 = 0x");
     Serial.println(incrementalResult, HEX);
     Serial.println();
-
-    // Example 2: Batch calculation (using a static method)
     Serial.println("Example 2: Batch Calculation");
     Serial.println("----------------------------");
     
@@ -76,7 +71,6 @@ void setup()
     Serial.println(batchResult, HEX);
     Serial.println();
 
-    // Example 3: Data verification
     Serial.println("Example 3: Data Verification");
     Serial.println("----------------------------");
     
@@ -100,7 +94,7 @@ void setup()
     Serial.println("\nDemonstrating error detection:");
     
     // Simulate data corruption by changing one byte
-    uint8_t corruptedData[] = {0x01, 0x02, 0x03, 0x44, 0x05}; // 0x04 изменен на 0x44
+    uint8_t corruptedData[] = {0x01, 0x02, 0x03, 0x44, 0x05}; // 0x04 is changed to 0x44
     
     Serial.print("Corrupted data: ");
     for (uint16_t i = 0; i < dataLength; i++) {
