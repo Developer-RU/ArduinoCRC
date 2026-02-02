@@ -1,6 +1,6 @@
 # Checksum Library for Arduino
 
-[![Version: 2.0.0](images/version.svg)](https://github.com/Developer-RU/ArduinoCRC/releases)
+[![Version: 2.0.0](images/version.svg)](https://github.com/Developer-RU/ArduinoCRC/releases/tag/2.0.0)
 [![License: MIT](images/license-mit.svg)](LICENSE.md)
 
 
